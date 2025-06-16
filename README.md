@@ -67,8 +67,8 @@ Our frontend UI was **completely redesigned** — with a modern layout, refreshe
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/MomoInsights-GroupB.git
-   cd MomoInsights-GroupB
+   git clone https://github.com/Larissa4-droid/MomoData-Analysis-Summative-Group47.git
+   cd MomoData-Analysis-Summative-Group47
    ```
 
 2. **Install required Python packages**
@@ -96,7 +96,7 @@ Our frontend UI was **completely redesigned** — with a modern layout, refreshe
    ```
 
 6. **View the dashboard**
-   Open your browser and go to: [http://localhost:5000](http://localhost:5000)
+   Open your browser and go to: [http://127.0.0.1:5000]
 
  *Note: Run `db_setup.py` and `load_data.py` only once. Afterward, only run `app.py` to start the server.*
 
