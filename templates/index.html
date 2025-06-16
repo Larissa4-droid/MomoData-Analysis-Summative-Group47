@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>📱 MoMo Analytics Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>📈 Mobile Money Analytics</h1>
+        <p style="margin: 5px 0 0; font-weight: 400;">Insightful view into your MoMo transactions</p>
+    </header>
+
+    <section class="filters">
+        <form method="get">
+            <input type="text" name="type" placeholder="Transaction Type" value="{{ request.args.get('type', '') }}">
+            <input type="date" name="date" value="{{ request.args.get('date', '') }}">
+            <input type="month" name="month_year" value="{{ request.args.get('month_year', '') }}">
+            <input type="number" name="year" placeholder="Year" min="2000" max="2100" value="{{ request.args.get('year', '') }}">
+            <input type="number" name="min_amount" placeholder="Min Amount" value="{{ request.args.get('min_amount', '') }}">
+            <input type="number" name="max_amount" placeholder="Max Amount" value="{{ request.args.get('max_amount', '') }}">
+            <button type="submit">🔍 Filter</button>
+        </form>
+    </section>
+
+    <section class="summary">
+        {% if messages %}
+            {{ total_messages }} transaction{{ 's' if total_messages != 1 else '' }} found 🎉
+        {% else %}
+            No matching transactions found. Try adjusting your filters. 😢
+        {% endif %}
+    </section>
+
+    <main class="dashboard">
+        <div class="chart-container">
+            <h2 style="margin-bottom: 10px;">🧾 Transaction Categories</h2>
+            {{ pie_chart | safe }}
+        </div>
+
+        <div class="chart-container">
+            <h2 style="margin-bottom: 10px;">💰 Transaction Amounts</h2>
+            {{ bar_chart | safe }}
+        </div>
+
+        <div class="messages">
+            <h2 style="margin-bottom: 10px;">📜 Transaction Details</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Balance</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for msg in messages %}
+                    <tr>
+                        <td>{{ msg[1] }}</td>
+                        <td>{{ msg[-1] }}</td>
+                        <td>{{ msg[5] }}</td>
+                        <td>{{ msg[6] }}</td>
+                        <td>{{ msg[4] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            {% if total_pages > 1 %}
+            <div class="pagination">
+                {% if current_page > 1 %}
+                <a href="{{ url_for('index') }}?{% for k, v in request.args.items() if k != 'page' %}{{ k }}={{ v }}&{% endfor %}page={{ current_page - 1 }}">⬅ Previous</a>
+                {% endif %}
+                <span>Page {{ current_page }} of {{ total_pages }}</span>
+                {% if current_page < total_pages %}
+                <a href="{{ url_for('index') }}?{% for k, v in request.args.items() if k != 'page' %}{{ k }}={{ v }}&{% endfor %}page={{ current_page + 1 }}">Next ➡</a>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </main>
+
+</body>
+</html>
+

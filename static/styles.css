@@ -1,0 +1,152 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1f2937;
+    color: #f3f4f6;
+}
+
+header {
+    background-color: #10b981;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+    color: white;
+}
+
+/* Filter Form */
+form.filters {
+    background-color: #111827;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    border-bottom: 2px solid #10b981;
+}
+
+form input, form button {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    background-color: #374151;
+    color: #f9fafb;
+    transition: 0.3s ease;
+}
+
+form input::placeholder {
+    color: #9ca3af;
+}
+
+form input:focus {
+    outline: 2px solid #10b981;
+}
+
+form button {
+    background-color: #10b981;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #059669;
+}
+
+/* Summary Text */
+.summary {
+    text-align: center;
+    margin: 20px 10px 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #d1d5db;
+}
+
+/* Dashboard Layout (stacked) */
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Chart & Table Cards */
+.chart-container, .messages {
+    background-color: #111827;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Responsive Charts */
+.chart-container {
+    height: 300px;
+}
+
+.chart-container iframe, .chart-container div {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+thead {
+    background-color: #10b981;
+    color: white;
+}
+
+th, td {
+    border: 1px solid #374151;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1f2937;
+}
+
+tbody tr:hover {
+    background-color: #374151;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.pagination a {
+    padding: 10px 18px;
+    border-radius: 6px;
+    background-color: #10b981;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pagination a:hover {
+    background-color: #059669;
+    transform: scale(1.05);
+}
+
+.pagination span {
+    color: #f3f4f6;
+}
