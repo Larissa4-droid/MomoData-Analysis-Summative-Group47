@@ -103,10 +103,10 @@ Our frontend UI was **completely redesigned** — with a modern layout, refreshe
 ## Extra Materials
 
 * **Demo video**
-  [Watch here](https://drive.google.com/file/d/1mFVz1NDM_2LEbsq5oy3LaMELeMTgz0m1/view?usp=sharing)
+(https://drive.google.com/file/d/1mFVz1NDM_2LEbsq5oy3LaMELeMTgz0m1/view?usp=sharing)
 
 * **Project Report**
-  [Read here](https://docs.google.com/document/d/1IQQwg3zi18bvVmKLDdcjPG4QS1xvZ533aIYxfXYN8VE/edit?tab=t.0)
+(https://docs.google.com/document/d/1IQQwg3zi18bvVmKLDdcjPG4QS1xvZ533aIYxfXYN8VE/edit?tab=t.0)
 
 ## 👥 Contributors
 
